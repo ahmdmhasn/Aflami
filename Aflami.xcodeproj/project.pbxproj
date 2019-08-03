@@ -7,21 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A0DC3A7602BF6C8425E1EF4 /* Pods_Aflami.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B62C581B4B6619465254AA40 /* Pods_Aflami.framework */; };
 		E265CD0122F5A8A400468592 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E265CD0022F5A8A400468592 /* AppDelegate.swift */; };
-		E265CD0322F5A8A400468592 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E265CD0222F5A8A400468592 /* ViewController.swift */; };
 		E265CD0622F5A8A400468592 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E265CD0422F5A8A400468592 /* Main.storyboard */; };
 		E265CD0822F5A8A400468592 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E265CD0722F5A8A400468592 /* Assets.xcassets */; };
 		E265CD0B22F5A8A400468592 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E265CD0922F5A8A400468592 /* LaunchScreen.storyboard */; };
+		E265CD1A22F5ACBE00468592 /* MovieAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E265CD1822F5ACBE00468592 /* MovieAPI.swift */; };
+		E265CD1B22F5ACBE00468592 /* MovieAPI+Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E265CD1922F5ACBE00468592 /* MovieAPI+Testing.swift */; };
+		E265CD1D22F5ACD200468592 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E265CD1C22F5ACD200468592 /* NetworkManager.swift */; };
+		E265CD1F22F5ACDD00468592 /* Test.json in Resources */ = {isa = PBXBuildFile; fileRef = E265CD1E22F5ACDD00468592 /* Test.json */; };
+		E265CD2622F5B8A100468592 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E265CD2522F5B8A100468592 /* MovieModel.swift */; };
+		E265CD2822F5B97800468592 /* PopularMoviesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E265CD2722F5B97800468592 /* PopularMoviesVC.swift */; };
+		E265CD2A22F5B99F00468592 /* PopularMoviesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E265CD2922F5B99F00468592 /* PopularMoviesPresenter.swift */; };
+		E265CD2D22F5C37200468592 /* MoviesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E265CD2B22F5C37200468592 /* MoviesCollectionViewCell.swift */; };
+		E265CD2E22F5C37200468592 /* MoviesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E265CD2C22F5C37200468592 /* MoviesCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7D37084E9A6965343090F7F8 /* Pods-Aflami.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aflami.release.xcconfig"; path = "Target Support Files/Pods-Aflami/Pods-Aflami.release.xcconfig"; sourceTree = "<group>"; };
+		9F2555ECC4EDCCB810F9A94E /* Pods-Aflami.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aflami.debug.xcconfig"; path = "Target Support Files/Pods-Aflami/Pods-Aflami.debug.xcconfig"; sourceTree = "<group>"; };
+		B62C581B4B6619465254AA40 /* Pods_Aflami.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Aflami.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E265CCFD22F5A8A400468592 /* Aflami.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aflami.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E265CD0022F5A8A400468592 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E265CD0222F5A8A400468592 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E265CD0522F5A8A400468592 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E265CD0722F5A8A400468592 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E265CD0A22F5A8A400468592 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E265CD0C22F5A8A400468592 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E265CD1822F5ACBE00468592 /* MovieAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MovieAPI.swift; path = "Network Layer/End Point/MovieAPI.swift"; sourceTree = "<group>"; };
+		E265CD1922F5ACBE00468592 /* MovieAPI+Testing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "MovieAPI+Testing.swift"; path = "Network Layer/End Point/MovieAPI+Testing.swift"; sourceTree = "<group>"; };
+		E265CD1C22F5ACD200468592 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkManager.swift; path = "Network Layer/Manager/NetworkManager.swift"; sourceTree = "<group>"; };
+		E265CD1E22F5ACDD00468592 /* Test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Test.json; path = "Network Layer/Stubbed Responses/Test.json"; sourceTree = "<group>"; };
+		E265CD2522F5B8A100468592 /* MovieModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
+		E265CD2722F5B97800468592 /* PopularMoviesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularMoviesVC.swift; sourceTree = "<group>"; };
+		E265CD2922F5B99F00468592 /* PopularMoviesPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularMoviesPresenter.swift; sourceTree = "<group>"; };
+		E265CD2B22F5C37200468592 /* MoviesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesCollectionViewCell.swift; sourceTree = "<group>"; };
+		E265CD2C22F5C37200468592 /* MoviesCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoviesCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +49,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A0DC3A7602BF6C8425E1EF4 /* Pods_Aflami.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		524CEDA5F68FC1B2409C33AC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B62C581B4B6619465254AA40 /* Pods_Aflami.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BFB48C5CEA48D4E239F65249 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9F2555ECC4EDCCB810F9A94E /* Pods-Aflami.debug.xcconfig */,
+				7D37084E9A6965343090F7F8 /* Pods-Aflami.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		E265CCF422F5A8A400468592 = {
 			isa = PBXGroup;
 			children = (
 				E265CCFF22F5A8A400468592 /* Aflami */,
 				E265CCFE22F5A8A400468592 /* Products */,
+				BFB48C5CEA48D4E239F65249 /* Pods */,
+				524CEDA5F68FC1B2409C33AC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +94,62 @@
 		E265CCFF22F5A8A400468592 /* Aflami */ = {
 			isa = PBXGroup;
 			children = (
+				E265CD2422F5B88800468592 /* Model */,
+				E265CD2022F5ACE900468592 /* Network Layer */,
 				E265CD0022F5A8A400468592 /* AppDelegate.swift */,
-				E265CD0222F5A8A400468592 /* ViewController.swift */,
 				E265CD0422F5A8A400468592 /* Main.storyboard */,
 				E265CD0722F5A8A400468592 /* Assets.xcassets */,
 				E265CD0922F5A8A400468592 /* LaunchScreen.storyboard */,
 				E265CD0C22F5A8A400468592 /* Info.plist */,
+				E265CD2722F5B97800468592 /* PopularMoviesVC.swift */,
+				E265CD2922F5B99F00468592 /* PopularMoviesPresenter.swift */,
+				E265CD2B22F5C37200468592 /* MoviesCollectionViewCell.swift */,
+				E265CD2C22F5C37200468592 /* MoviesCollectionViewCell.xib */,
 			);
 			path = Aflami;
+			sourceTree = "<group>";
+		};
+		E265CD2022F5ACE900468592 /* Network Layer */ = {
+			isa = PBXGroup;
+			children = (
+				E265CD2322F5AD0D00468592 /* Manager */,
+				E265CD2222F5AD0600468592 /* End Point */,
+				E265CD2122F5ACF400468592 /* Stubbed Responses */,
+			);
+			name = "Network Layer";
+			sourceTree = "<group>";
+		};
+		E265CD2122F5ACF400468592 /* Stubbed Responses */ = {
+			isa = PBXGroup;
+			children = (
+				E265CD1E22F5ACDD00468592 /* Test.json */,
+			);
+			name = "Stubbed Responses";
+			sourceTree = "<group>";
+		};
+		E265CD2222F5AD0600468592 /* End Point */ = {
+			isa = PBXGroup;
+			children = (
+				E265CD1822F5ACBE00468592 /* MovieAPI.swift */,
+				E265CD1922F5ACBE00468592 /* MovieAPI+Testing.swift */,
+			);
+			name = "End Point";
+			sourceTree = "<group>";
+		};
+		E265CD2322F5AD0D00468592 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				E265CD1C22F5ACD200468592 /* NetworkManager.swift */,
+			);
+			name = Manager;
+			sourceTree = "<group>";
+		};
+		E265CD2422F5B88800468592 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E265CD2522F5B8A100468592 /* MovieModel.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +159,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E265CD0F22F5A8A400468592 /* Build configuration list for PBXNativeTarget "Aflami" */;
 			buildPhases = (
+				B7D7AC387BC916C821CC0BE4 /* [CP] Check Pods Manifest.lock */,
 				E265CCF922F5A8A400468592 /* Sources */,
 				E265CCFA22F5A8A400468592 /* Frameworks */,
 				E265CCFB22F5A8A400468592 /* Resources */,
+				D9E4E2C4FB2885E133FF7B7A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -125,6 +215,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E265CD0B22F5A8A400468592 /* LaunchScreen.storyboard in Resources */,
+				E265CD1F22F5ACDD00468592 /* Test.json in Resources */,
+				E265CD2E22F5C37200468592 /* MoviesCollectionViewCell.xib in Resources */,
 				E265CD0822F5A8A400468592 /* Assets.xcassets in Resources */,
 				E265CD0622F5A8A400468592 /* Main.storyboard in Resources */,
 			);
@@ -132,13 +224,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B7D7AC387BC916C821CC0BE4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Aflami-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D9E4E2C4FB2885E133FF7B7A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Aflami/Pods-Aflami-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Aflami/Pods-Aflami-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E265CCF922F5A8A400468592 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E265CD0322F5A8A400468592 /* ViewController.swift in Sources */,
+				E265CD2822F5B97800468592 /* PopularMoviesVC.swift in Sources */,
+				E265CD2622F5B8A100468592 /* MovieModel.swift in Sources */,
 				E265CD0122F5A8A400468592 /* AppDelegate.swift in Sources */,
+				E265CD2D22F5C37200468592 /* MoviesCollectionViewCell.swift in Sources */,
+				E265CD1D22F5ACD200468592 /* NetworkManager.swift in Sources */,
+				E265CD2A22F5B99F00468592 /* PopularMoviesPresenter.swift in Sources */,
+				E265CD1A22F5ACBE00468592 /* MovieAPI.swift in Sources */,
+				E265CD1B22F5ACBE00468592 /* MovieAPI+Testing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +402,7 @@
 		};
 		E265CD1022F5A8A400468592 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F2555ECC4EDCCB810F9A94E /* Pods-Aflami.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = JUUZV79G5F;
@@ -272,6 +416,7 @@
 		};
 		E265CD1122F5A8A400468592 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D37084E9A6965343090F7F8 /* Pods-Aflami.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = JUUZV79G5F;
@@ -302,6 +447,7 @@
 				E265CD1122F5A8A400468592 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
