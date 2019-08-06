@@ -8,6 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		0A0DC3A7602BF6C8425E1EF4 /* Pods_Aflami.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B62C581B4B6619465254AA40 /* Pods_Aflami.framework */; };
+		7A2572F61E291F7C1AE514B7 /* Pods_AflamiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B12929B0C5AE3E7084757A0 /* Pods_AflamiTests.framework */; };
+		E209637722F8A81B009C7CCE /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E209637622F8A81B009C7CCE /* DataManager.swift */; };
+		E254C89222F9764500C9B80A /* MovieApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E254C89122F9764500C9B80A /* MovieApiResponse.swift */; };
+		E254C89422F9769800C9B80A /* Persistable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E254C89322F9769800C9B80A /* Persistable.swift */; };
+		E254C89622F9810100C9B80A /* MovieDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E254C89522F9810100C9B80A /* MovieDetailsVC.swift */; };
+		E254C8CE22F99C8800C9B80A /* AflamiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E254C8CD22F99C8800C9B80A /* AflamiTests.swift */; };
+		E254C8EB22F9A6EA00C9B80A /* WriteTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E254C8EA22F9A6EA00C9B80A /* WriteTransaction.swift */; };
+		E254C8EE22F9CE8500C9B80A /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E254C8ED22F9CE8500C9B80A /* UIColor+.swift */; };
+		E254C8F122F9D0D000C9B80A /* MovieDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E254C8F022F9D0D000C9B80A /* MovieDetailsPresenter.swift */; };
+		E254C8F322F9D51200C9B80A /* RoundedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E254C8F222F9D51200C9B80A /* RoundedLabel.swift */; };
+		E254C8F522F9D77F00C9B80A /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E254C8F422F9D77F00C9B80A /* RoundedView.swift */; };
+		E254C8F722F9D7D000C9B80A /* CornerRoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E254C8F622F9D7D000C9B80A /* CornerRoundedView.swift */; };
+		E254C8F922F9D84C00C9B80A /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E254C8F822F9D84C00C9B80A /* RoundImageView.swift */; };
+		E254C8FD22F9E0DB00C9B80A /* ImageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E254C8FC22F9E0DB00C9B80A /* ImageAPI.swift */; };
+		E256A04622FA2E4900733BB7 /* Trailer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E256A04522FA2E4900733BB7 /* Trailer.swift */; };
+		E25D2E0022F60FB600C37702 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25D2DFF22F60FB600C37702 /* BaseViewController.swift */; };
 		E265CD0122F5A8A400468592 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E265CD0022F5A8A400468592 /* AppDelegate.swift */; };
 		E265CD0622F5A8A400468592 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E265CD0422F5A8A400468592 /* Main.storyboard */; };
 		E265CD0822F5A8A400468592 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E265CD0722F5A8A400468592 /* Assets.xcassets */; };
@@ -16,17 +32,58 @@
 		E265CD1B22F5ACBE00468592 /* MovieAPI+Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E265CD1922F5ACBE00468592 /* MovieAPI+Testing.swift */; };
 		E265CD1D22F5ACD200468592 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E265CD1C22F5ACD200468592 /* NetworkManager.swift */; };
 		E265CD1F22F5ACDD00468592 /* Test.json in Resources */ = {isa = PBXBuildFile; fileRef = E265CD1E22F5ACDD00468592 /* Test.json */; };
-		E265CD2622F5B8A100468592 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E265CD2522F5B8A100468592 /* MovieModel.swift */; };
+		E265CD2622F5B8A100468592 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = E265CD2522F5B8A100468592 /* Movie.swift */; };
 		E265CD2822F5B97800468592 /* PopularMoviesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E265CD2722F5B97800468592 /* PopularMoviesVC.swift */; };
 		E265CD2A22F5B99F00468592 /* PopularMoviesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E265CD2922F5B99F00468592 /* PopularMoviesPresenter.swift */; };
 		E265CD2D22F5C37200468592 /* MoviesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E265CD2B22F5C37200468592 /* MoviesCollectionViewCell.swift */; };
 		E265CD2E22F5C37200468592 /* MoviesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E265CD2C22F5C37200468592 /* MoviesCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		E254C8D022F99C8800C9B80A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E265CCF522F5A8A400468592 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E265CCFC22F5A8A400468592;
+			remoteInfo = Aflami;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		72872D817D140547641E1E48 /* Pods-AflamiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AflamiTests.debug.xcconfig"; path = "Target Support Files/Pods-AflamiTests/Pods-AflamiTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7B12929B0C5AE3E7084757A0 /* Pods_AflamiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AflamiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D37084E9A6965343090F7F8 /* Pods-Aflami.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aflami.release.xcconfig"; path = "Target Support Files/Pods-Aflami/Pods-Aflami.release.xcconfig"; sourceTree = "<group>"; };
 		9F2555ECC4EDCCB810F9A94E /* Pods-Aflami.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aflami.debug.xcconfig"; path = "Target Support Files/Pods-Aflami/Pods-Aflami.debug.xcconfig"; sourceTree = "<group>"; };
 		B62C581B4B6619465254AA40 /* Pods_Aflami.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Aflami.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA7A43C24069DEE4FB487F6E /* Pods-AflamiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AflamiTests.release.xcconfig"; path = "Target Support Files/Pods-AflamiTests/Pods-AflamiTests.release.xcconfig"; sourceTree = "<group>"; };
+		E209637622F8A81B009C7CCE /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataManager.swift; path = "Data Provider/DataManager.swift"; sourceTree = "<group>"; };
+		E254C89122F9764500C9B80A /* MovieApiResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MovieApiResponse.swift; path = Model/MovieApiResponse.swift; sourceTree = "<group>"; };
+		E254C89322F9769800C9B80A /* Persistable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Persistable.swift; path = "Data Layer/Persistable.swift"; sourceTree = "<group>"; };
+		E254C89522F9810100C9B80A /* MovieDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MovieDetailsVC.swift; path = Controller/MovieDetailsVC.swift; sourceTree = "<group>"; };
+		E254C8AA22F9953600C9B80A /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = "../../Library/Developer/Xcode/DerivedData/Aflami-cvyrsjuzjktcbqcqzhtuqqddocjg/Build/Products/Debug-iphonesimulator/Realm/Realm.framework"; sourceTree = "<group>"; };
+		E254C8AB22F9953600C9B80A /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = "../../Library/Developer/Xcode/DerivedData/Aflami-cvyrsjuzjktcbqcqzhtuqqddocjg/Build/Products/Debug-iphonesimulator/RealmSwift/RealmSwift.framework"; sourceTree = "<group>"; };
+		E254C8B222F9964C00C9B80A /* Pods_Aflami.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_Aflami.framework; path = "../../Library/Developer/Xcode/DerivedData/Aflami-cvyrsjuzjktcbqcqzhtuqqddocjg/Build/Products/Debug-iphonesimulator/Pods_Aflami.framework"; sourceTree = "<group>"; };
+		E254C8B622F997E000C9B80A /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../Library/Developer/Xcode/DerivedData/Aflami-cvyrsjuzjktcbqcqzhtuqqddocjg/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
+		E254C8B722F997E000C9B80A /* ChameleonFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ChameleonFramework.framework; path = "../../Library/Developer/Xcode/DerivedData/Aflami-cvyrsjuzjktcbqcqzhtuqqddocjg/Build/Products/Debug-iphonesimulator/ChameleonFramework/ChameleonFramework.framework"; sourceTree = "<group>"; };
+		E254C8B822F997E000C9B80A /* Cosmos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cosmos.framework; path = "../../Library/Developer/Xcode/DerivedData/Aflami-cvyrsjuzjktcbqcqzhtuqqddocjg/Build/Products/Debug-iphonesimulator/Cosmos/Cosmos.framework"; sourceTree = "<group>"; };
+		E254C8B922F997E000C9B80A /* Moya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Moya.framework; path = "../../Library/Developer/Xcode/DerivedData/Aflami-cvyrsjuzjktcbqcqzhtuqqddocjg/Build/Products/Debug-iphonesimulator/Moya/Moya.framework"; sourceTree = "<group>"; };
+		E254C8BA22F997E000C9B80A /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = "../../Library/Developer/Xcode/DerivedData/Aflami-cvyrsjuzjktcbqcqzhtuqqddocjg/Build/Products/Debug-iphonesimulator/Result/Result.framework"; sourceTree = "<group>"; };
+		E254C8BB22F997E000C9B80A /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = "../../Library/Developer/Xcode/DerivedData/Aflami-cvyrsjuzjktcbqcqzhtuqqddocjg/Build/Products/Debug-iphonesimulator/SDWebImage/SDWebImage.framework"; sourceTree = "<group>"; };
+		E254C8BC22F997E000C9B80A /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = "../../Library/Developer/Xcode/DerivedData/Aflami-cvyrsjuzjktcbqcqzhtuqqddocjg/Build/Products/Debug-iphonesimulator/SVProgressHUD/SVProgressHUD.framework"; sourceTree = "<group>"; };
+		E254C8BD22F997E000C9B80A /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../Library/Developer/Xcode/DerivedData/Aflami-cvyrsjuzjktcbqcqzhtuqqddocjg/Build/Products/Debug-iphonesimulator/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
+		E254C8CB22F99C8700C9B80A /* AflamiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AflamiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E254C8CD22F99C8800C9B80A /* AflamiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AflamiTests.swift; sourceTree = "<group>"; };
+		E254C8CF22F99C8800C9B80A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E254C8EA22F9A6EA00C9B80A /* WriteTransaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WriteTransaction.swift; path = "Data Layer/WriteTransaction.swift"; sourceTree = "<group>"; };
+		E254C8ED22F9CE8500C9B80A /* UIColor+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+.swift"; path = "View/UIColor+.swift"; sourceTree = "<group>"; };
+		E254C8F022F9D0D000C9B80A /* MovieDetailsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MovieDetailsPresenter.swift; path = Presenter/MovieDetailsPresenter.swift; sourceTree = "<group>"; };
+		E254C8F222F9D51200C9B80A /* RoundedLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoundedLabel.swift; path = View/RoundedLabel.swift; sourceTree = "<group>"; };
+		E254C8F422F9D77F00C9B80A /* RoundedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoundedView.swift; path = View/RoundedView.swift; sourceTree = "<group>"; };
+		E254C8F622F9D7D000C9B80A /* CornerRoundedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CornerRoundedView.swift; path = View/CornerRoundedView.swift; sourceTree = "<group>"; };
+		E254C8F822F9D84C00C9B80A /* RoundImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoundImageView.swift; path = View/RoundImageView.swift; sourceTree = "<group>"; };
+		E254C8FC22F9E0DB00C9B80A /* ImageAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageAPI.swift; path = "Network Layer/End Point/ImageAPI.swift"; sourceTree = "<group>"; };
+		E256A04522FA2E4900733BB7 /* Trailer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Trailer.swift; path = Model/Trailer.swift; sourceTree = "<group>"; };
+		E25D2DFF22F60FB600C37702 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseViewController.swift; path = Controller/BaseViewController.swift; sourceTree = "<group>"; };
 		E265CCFD22F5A8A400468592 /* Aflami.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aflami.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E265CD0022F5A8A400468592 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E265CD0522F5A8A400468592 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -37,7 +94,7 @@
 		E265CD1922F5ACBE00468592 /* MovieAPI+Testing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "MovieAPI+Testing.swift"; path = "Network Layer/End Point/MovieAPI+Testing.swift"; sourceTree = "<group>"; };
 		E265CD1C22F5ACD200468592 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkManager.swift; path = "Network Layer/Manager/NetworkManager.swift"; sourceTree = "<group>"; };
 		E265CD1E22F5ACDD00468592 /* Test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Test.json; path = "Network Layer/Stubbed Responses/Test.json"; sourceTree = "<group>"; };
-		E265CD2522F5B8A100468592 /* MovieModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
+		E265CD2522F5B8A100468592 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		E265CD2722F5B97800468592 /* PopularMoviesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularMoviesVC.swift; sourceTree = "<group>"; };
 		E265CD2922F5B99F00468592 /* PopularMoviesPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularMoviesPresenter.swift; sourceTree = "<group>"; };
 		E265CD2B22F5C37200468592 /* MoviesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -45,6 +102,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		E254C8C822F99C8700C9B80A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A2572F61E291F7C1AE514B7 /* Pods_AflamiTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E265CCFA22F5A8A400468592 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -59,7 +124,19 @@
 		524CEDA5F68FC1B2409C33AC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E254C8B622F997E000C9B80A /* Alamofire.framework */,
+				E254C8B722F997E000C9B80A /* ChameleonFramework.framework */,
+				E254C8B822F997E000C9B80A /* Cosmos.framework */,
+				E254C8B922F997E000C9B80A /* Moya.framework */,
+				E254C8BA22F997E000C9B80A /* Result.framework */,
+				E254C8BB22F997E000C9B80A /* SDWebImage.framework */,
+				E254C8BC22F997E000C9B80A /* SVProgressHUD.framework */,
+				E254C8BD22F997E000C9B80A /* SwiftyJSON.framework */,
+				E254C8B222F9964C00C9B80A /* Pods_Aflami.framework */,
+				E254C8AA22F9953600C9B80A /* Realm.framework */,
+				E254C8AB22F9953600C9B80A /* RealmSwift.framework */,
 				B62C581B4B6619465254AA40 /* Pods_Aflami.framework */,
+				7B12929B0C5AE3E7084757A0 /* Pods_AflamiTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -69,14 +146,57 @@
 			children = (
 				9F2555ECC4EDCCB810F9A94E /* Pods-Aflami.debug.xcconfig */,
 				7D37084E9A6965343090F7F8 /* Pods-Aflami.release.xcconfig */,
+				72872D817D140547641E1E48 /* Pods-AflamiTests.debug.xcconfig */,
+				BA7A43C24069DEE4FB487F6E /* Pods-AflamiTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		E209637522F8A7E0009C7CCE /* Data Layer */ = {
+			isa = PBXGroup;
+			children = (
+				E209637622F8A81B009C7CCE /* DataManager.swift */,
+				E254C89322F9769800C9B80A /* Persistable.swift */,
+				E254C8EA22F9A6EA00C9B80A /* WriteTransaction.swift */,
+			);
+			name = "Data Layer";
+			sourceTree = "<group>";
+		};
+		E254C8CC22F99C8800C9B80A /* AflamiTests */ = {
+			isa = PBXGroup;
+			children = (
+				E254C8CD22F99C8800C9B80A /* AflamiTests.swift */,
+				E254C8CF22F99C8800C9B80A /* Info.plist */,
+			);
+			path = AflamiTests;
+			sourceTree = "<group>";
+		};
+		E254C8EC22F9CE5C00C9B80A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E254C8F822F9D84C00C9B80A /* RoundImageView.swift */,
+				E254C8ED22F9CE8500C9B80A /* UIColor+.swift */,
+				E254C8F222F9D51200C9B80A /* RoundedLabel.swift */,
+				E254C8F422F9D77F00C9B80A /* RoundedView.swift */,
+				E254C8F622F9D7D000C9B80A /* CornerRoundedView.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		E254C8EF22F9CFDD00C9B80A /* Movie Details */ = {
+			isa = PBXGroup;
+			children = (
+				E254C89522F9810100C9B80A /* MovieDetailsVC.swift */,
+				E254C8F022F9D0D000C9B80A /* MovieDetailsPresenter.swift */,
+			);
+			name = "Movie Details";
 			sourceTree = "<group>";
 		};
 		E265CCF422F5A8A400468592 = {
 			isa = PBXGroup;
 			children = (
 				E265CCFF22F5A8A400468592 /* Aflami */,
+				E254C8CC22F99C8800C9B80A /* AflamiTests */,
 				E265CCFE22F5A8A400468592 /* Products */,
 				BFB48C5CEA48D4E239F65249 /* Pods */,
 				524CEDA5F68FC1B2409C33AC /* Frameworks */,
@@ -87,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				E265CCFD22F5A8A400468592 /* Aflami.app */,
+				E254C8CB22F99C8700C9B80A /* AflamiTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -94,17 +215,12 @@
 		E265CCFF22F5A8A400468592 /* Aflami */ = {
 			isa = PBXGroup;
 			children = (
+				E254C8EC22F9CE5C00C9B80A /* View */,
+				E209637522F8A7E0009C7CCE /* Data Layer */,
 				E265CD2422F5B88800468592 /* Model */,
 				E265CD2022F5ACE900468592 /* Network Layer */,
-				E265CD0022F5A8A400468592 /* AppDelegate.swift */,
-				E265CD0422F5A8A400468592 /* Main.storyboard */,
-				E265CD0722F5A8A400468592 /* Assets.xcassets */,
-				E265CD0922F5A8A400468592 /* LaunchScreen.storyboard */,
-				E265CD0C22F5A8A400468592 /* Info.plist */,
-				E265CD2722F5B97800468592 /* PopularMoviesVC.swift */,
-				E265CD2922F5B99F00468592 /* PopularMoviesPresenter.swift */,
-				E265CD2B22F5C37200468592 /* MoviesCollectionViewCell.swift */,
-				E265CD2C22F5C37200468592 /* MoviesCollectionViewCell.xib */,
+				E265CD3022F6061800468592 /* Scenes */,
+				E265CD3122F6062600468592 /* Supporting Files */,
 			);
 			path = Aflami;
 			sourceTree = "<group>";
@@ -132,6 +248,7 @@
 			children = (
 				E265CD1822F5ACBE00468592 /* MovieAPI.swift */,
 				E265CD1922F5ACBE00468592 /* MovieAPI+Testing.swift */,
+				E254C8FC22F9E0DB00C9B80A /* ImageAPI.swift */,
 			);
 			name = "End Point";
 			sourceTree = "<group>";
@@ -147,14 +264,68 @@
 		E265CD2422F5B88800468592 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E265CD2522F5B8A100468592 /* MovieModel.swift */,
+				E265CD2522F5B8A100468592 /* Movie.swift */,
+				E254C89122F9764500C9B80A /* MovieApiResponse.swift */,
+				E256A04522FA2E4900733BB7 /* Trailer.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		E265CD2F22F605FA00468592 /* Popular Movies */ = {
+			isa = PBXGroup;
+			children = (
+				E265CD2722F5B97800468592 /* PopularMoviesVC.swift */,
+				E265CD2922F5B99F00468592 /* PopularMoviesPresenter.swift */,
+				E265CD2B22F5C37200468592 /* MoviesCollectionViewCell.swift */,
+				E265CD2C22F5C37200468592 /* MoviesCollectionViewCell.xib */,
+			);
+			name = "Popular Movies";
+			sourceTree = "<group>";
+		};
+		E265CD3022F6061800468592 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				E265CD2F22F605FA00468592 /* Popular Movies */,
+				E25D2DFF22F60FB600C37702 /* BaseViewController.swift */,
+				E254C8EF22F9CFDD00C9B80A /* Movie Details */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
+		E265CD3122F6062600468592 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E265CD0022F5A8A400468592 /* AppDelegate.swift */,
+				E265CD0422F5A8A400468592 /* Main.storyboard */,
+				E265CD0722F5A8A400468592 /* Assets.xcassets */,
+				E265CD0922F5A8A400468592 /* LaunchScreen.storyboard */,
+				E265CD0C22F5A8A400468592 /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		E254C8CA22F99C8700C9B80A /* AflamiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E254C8D222F99C8800C9B80A /* Build configuration list for PBXNativeTarget "AflamiTests" */;
+			buildPhases = (
+				AC940B45C3C60F364EECB133 /* [CP] Check Pods Manifest.lock */,
+				E254C8C722F99C8700C9B80A /* Sources */,
+				E254C8C822F99C8700C9B80A /* Frameworks */,
+				E254C8C922F99C8700C9B80A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E254C8D122F99C8800C9B80A /* PBXTargetDependency */,
+			);
+			name = AflamiTests;
+			productName = AflamiTests;
+			productReference = E254C8CB22F99C8700C9B80A /* AflamiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		E265CCFC22F5A8A400468592 /* Aflami */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E265CD0F22F5A8A400468592 /* Build configuration list for PBXNativeTarget "Aflami" */;
@@ -184,6 +355,12 @@
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = ITI;
 				TargetAttributes = {
+					E254C8CA22F99C8700C9B80A = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = JUUZV79G5F;
+						ProvisioningStyle = Automatic;
+						TestTargetID = E265CCFC22F5A8A400468592;
+					};
 					E265CCFC22F5A8A400468592 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = JUUZV79G5F;
@@ -205,11 +382,19 @@
 			projectRoot = "";
 			targets = (
 				E265CCFC22F5A8A400468592 /* Aflami */,
+				E254C8CA22F99C8700C9B80A /* AflamiTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		E254C8C922F99C8700C9B80A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E265CCFB22F5A8A400468592 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -225,6 +410,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		AC940B45C3C60F364EECB133 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AflamiTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B7D7AC387BC916C821CC0BE4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -251,15 +454,27 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Aflami/Pods-Aflami-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
+				"${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cosmos.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,22 +485,52 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		E254C8C722F99C8700C9B80A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E254C8CE22F99C8800C9B80A /* AflamiTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E265CCF922F5A8A400468592 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E254C8F722F9D7D000C9B80A /* CornerRoundedView.swift in Sources */,
 				E265CD2822F5B97800468592 /* PopularMoviesVC.swift in Sources */,
-				E265CD2622F5B8A100468592 /* MovieModel.swift in Sources */,
+				E209637722F8A81B009C7CCE /* DataManager.swift in Sources */,
+				E254C8F522F9D77F00C9B80A /* RoundedView.swift in Sources */,
+				E254C8FD22F9E0DB00C9B80A /* ImageAPI.swift in Sources */,
+				E265CD2622F5B8A100468592 /* Movie.swift in Sources */,
+				E254C8F922F9D84C00C9B80A /* RoundImageView.swift in Sources */,
+				E254C89622F9810100C9B80A /* MovieDetailsVC.swift in Sources */,
+				E254C8F122F9D0D000C9B80A /* MovieDetailsPresenter.swift in Sources */,
 				E265CD0122F5A8A400468592 /* AppDelegate.swift in Sources */,
 				E265CD2D22F5C37200468592 /* MoviesCollectionViewCell.swift in Sources */,
+				E256A04622FA2E4900733BB7 /* Trailer.swift in Sources */,
+				E254C89222F9764500C9B80A /* MovieApiResponse.swift in Sources */,
+				E254C89422F9769800C9B80A /* Persistable.swift in Sources */,
 				E265CD1D22F5ACD200468592 /* NetworkManager.swift in Sources */,
+				E25D2E0022F60FB600C37702 /* BaseViewController.swift in Sources */,
+				E254C8F322F9D51200C9B80A /* RoundedLabel.swift in Sources */,
+				E254C8EB22F9A6EA00C9B80A /* WriteTransaction.swift in Sources */,
 				E265CD2A22F5B99F00468592 /* PopularMoviesPresenter.swift in Sources */,
 				E265CD1A22F5ACBE00468592 /* MovieAPI.swift in Sources */,
 				E265CD1B22F5ACBE00468592 /* MovieAPI+Testing.swift in Sources */,
+				E254C8EE22F9CE8500C9B80A /* UIColor+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E254C8D122F99C8800C9B80A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E265CCFC22F5A8A400468592 /* Aflami */;
+			targetProxy = E254C8D022F99C8800C9B80A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		E265CD0422F5A8A400468592 /* Main.storyboard */ = {
@@ -307,6 +552,38 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		E254C8D322F99C8800C9B80A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72872D817D140547641E1E48 /* Pods-AflamiTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = JUUZV79G5F;
+				INFOPLIST_FILE = AflamiTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = eg.com.iti.AflamiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Aflami.app/Aflami";
+			};
+			name = Debug;
+		};
+		E254C8D422F99C8800C9B80A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BA7A43C24069DEE4FB487F6E /* Pods-AflamiTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = JUUZV79G5F;
+				INFOPLIST_FILE = AflamiTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = eg.com.iti.AflamiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Aflami.app/Aflami";
+			};
+			name = Release;
+		};
 		E265CD0D22F5A8A400468592 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -347,7 +624,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -383,6 +660,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -391,7 +669,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -407,6 +685,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = JUUZV79G5F;
 				INFOPLIST_FILE = Aflami/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = eg.com.iti.Aflami;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -421,6 +700,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = JUUZV79G5F;
 				INFOPLIST_FILE = Aflami/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = eg.com.iti.Aflami;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -431,6 +711,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		E254C8D222F99C8800C9B80A /* Build configuration list for PBXNativeTarget "AflamiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E254C8D322F99C8800C9B80A /* Debug */,
+				E254C8D422F99C8800C9B80A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E265CCF822F5A8A400468592 /* Build configuration list for PBXProject "Aflami" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

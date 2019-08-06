@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PopularMoviesVC: UIViewController {
+class PopularMoviesVC: BaseViewController {
     
     var presenter: PopularMoviesPresenter!
     
@@ -17,13 +17,17 @@ class PopularMoviesVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        presenter.delegate = self
+        
         moviesCollectionView.delegate = self
         moviesCollectionView.dataSource = presenter
         moviesCollectionView.collectionViewLayout = layout
-        moviesCollectionView.refreshControl = refreshControl
+        if #available(iOS 10.0, *) {
+            moviesCollectionView.refreshControl = refreshControl
+        }
         moviesCollectionView.register(UINib(nibName: "MoviesCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: presenter.moviesCellReuseIdentifier)
         
-        
+        presenter.getMovies()
     }
     
     var layout: UICollectionViewFlowLayout {
@@ -32,7 +36,7 @@ class PopularMoviesVC: UIViewController {
         let insetRight: CGFloat = 5.0
         layout.sectionInset = UIEdgeInsets(top: 10.0, left: insetLeft, bottom: 5.0, right: insetRight)
         let itemWidth = UIScreen.main.bounds.width / 2 - (insetLeft + insetRight)
-        layout.itemSize = CGSize(width: itemWidth, height: 300.0)
+        layout.itemSize = CGSize(width: itemWidth, height: itemWidth*16/9)
         return layout
     }
     
@@ -42,25 +46,55 @@ class PopularMoviesVC: UIViewController {
         return refreshControl
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier! {
+        case "showDetailsFromPopular":
+            var vc = segue.destination as? MovieDetailsVC
+            let indexPath = moviesCollectionView.indexPathsForSelectedItems!.first
+            let presenter = MovieDetailsPresenter(movie: self.presenter.moviesList[indexPath!.row])
+            vc?.presenter = presenter
+        default:
+            fatalError("Identifier doesn't exist")
+        }
+    }
 }
 
 extension PopularMoviesVC: UICollectionViewDelegate {
     
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+        if (indexPath.row + 1) == presenter.moviesList.count {
+            presenter.getMovies()
+        }
+    }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        performSegue(withIdentifier: "showDetailsFromPopular", sender: self)
+        
+    }
     
 }
 
-// MARL: - Handle refresh control
+// MARK: - Handle refresh control
 extension PopularMoviesVC {
     
     @objc func handleRefreshControl() {
         // Update content
-        print("test")
+//        presenter.getMovies()
         
         // Dismiss the refresh control.
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: { 
-            self.moviesCollectionView.refreshControl?.endRefreshing()
-        })
+        DispatchQueue.main.async {
+            if #available(iOS 10.0, *) {
+                self.moviesCollectionView.refreshControl?.endRefreshing()
+            }
+        }
+    }
+}
+
+extension PopularMoviesVC: PopularMoviesDelegate {
+    func reloadCollectionView() {
+        self.moviesCollectionView.reloadData()
     }
 }

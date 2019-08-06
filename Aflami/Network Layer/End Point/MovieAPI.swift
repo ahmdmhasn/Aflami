@@ -23,6 +23,9 @@ public enum MovieAPI {
     case video(id: Int)
     case login(userName: String, password: String)
     case register(userName: String, email: String, hashedPassword: String)
+    case trailers(id: Int)
+    case reviews(id: Int)
+    case cast(id: Int)
 }
 
 extension MovieAPI: TargetType {
@@ -58,6 +61,12 @@ extension MovieAPI: TargetType {
             return userName + password // Edit this
         case .register(let userName, let email, let hashedPassword):
             return userName + email + hashedPassword
+        case .trailers(let id):
+            return "/movie/\(id)/videos"
+        case .reviews(let id):
+            return "/movie/\(id)/reviews"
+        case .cast(let id):
+            return "/movie/\(id)/credits"
         }
     }
     
@@ -76,6 +85,8 @@ extension MovieAPI: TargetType {
         switch self {
         case .popular(let page):
             return ["page": page, "api_key": NetworkManager.myAPIKey]
+        case .trailers, .reviews, .cast:
+            return ["api_key": NetworkManager.myAPIKey]
         default:
             return [:]
         }
@@ -91,10 +102,7 @@ extension MovieAPI: TargetType {
     
     /// The type of HTTP task to be performed.
     public var task: Task {
-        switch self {
-        default:
-            return .request
-        }
+        return .request
     }
     
     /// Whether or not to perform Alamofire validation. Defaults to `false`.

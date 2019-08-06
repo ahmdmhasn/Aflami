@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import ChameleonFramework
+import SDWebImage
 
 class MoviesCollectionViewCell: UICollectionViewCell {
 
@@ -18,7 +20,13 @@ class MoviesCollectionViewCell: UICollectionViewCell {
     
     var movie: Movie! {
         didSet {
-            titleLabel.text = "test"
+            titleLabel.text = movie.title
+            
+            let url = URL.getTMDBImage(type: .poster(path: movie.posterPath, size: .w342))
+            imageView.sd_setImage(with: url, completed: nil)
+            
+            self.layoutIfNeeded()
+            shadowView.backgroundColor = UIColor.init(gradientStyle: .topToBottom, withFrame: shadowView.frame, andColors: [UIColor.clear, UIColor(white: 0.0, alpha: 0.4), UIColor(white: 0.0, alpha: 0.6)])
         }
     }
     

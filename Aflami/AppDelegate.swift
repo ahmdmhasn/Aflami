@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,6 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let presenter = PopularMoviesPresenter()
         let initialViewController = window?.rootViewController as? PopularMoviesVC
         initialViewController?.presenter = presenter
+        
+        // Get realm file url
+        let realm = try! Realm()
+        print(realm.configuration.fileURL!)
         
         return true
     }

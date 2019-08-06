@@ -8,13 +8,28 @@
 
 import UIKit
 
+protocol PopularMoviesDelegate {
+    func reloadCollectionView()
+}
+
 class PopularMoviesPresenter: NSObject {
     
     let moviesCellReuseIdentifier = "MoviesCollectionViewCell"
-    let moviesList = [Movie]()
+    let networkManager = NetworkManager.shared
+    var moviesList = [Movie]()
+    var page: Int = 1
+    var delegate: PopularMoviesDelegate!
     
     func getMovies() {
-        
+        networkManager.getNewMovies(page: page) { [weak self] (movies) in
+            guard let movies = movies else {
+                return
+            }
+            
+            self?.page += 1
+            self?.moviesList.append(contentsOf: movies)
+            self?.delegate.reloadCollectionView()
+        }
     }
     
 }
@@ -30,7 +45,7 @@ extension PopularMoviesPresenter: UICollectionViewDataSource {
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let movie = Movie(id: 0, posterPath: "", backdrop: "", title: "", releaseDate: "", rating: 5.5, overview: "")
+        let movie = moviesList[indexPath.row]
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: moviesCellReuseIdentifier, for: indexPath) as! MoviesCollectionViewCell
         

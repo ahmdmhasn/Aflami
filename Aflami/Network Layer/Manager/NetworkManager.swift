@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import SwiftyJSON
 import Moya
 
 protocol Networkable {
@@ -15,10 +15,14 @@ protocol Networkable {
     func getNewMovies(page: Int, completion: @escaping ([Movie]?)->())
 }
 
-struct NetworkManager {    
+class NetworkManager {
+    
+    public static let shared = NetworkManager()
+    
+    private init() {}
+    
     static let environment: NetworkEnvironment = .production
     static let myAPIKey = "e91d155831d8f6a5c7089243d189285b"
-//    fileprivate let router = Router<MyAPI>()
     let provider = MoyaProvider<MovieAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
 }
 
@@ -30,11 +34,23 @@ extension NetworkManager: Networkable{
         provider.request(.popular(page: page)) { (result) in
             switch result {
             case let .success(response):
-//                let json = JSON(data: response.data)
-//                completion(MovieApiResponse(from: json).movies)
-                break
+                let json = JSON(data: response.data)
+                completion(MovieApiResponse(from: json).movies)
             case let .failure(error):
                 print(error)
+                completion(nil)
+            }
+        }
+    }
+    
+    func getTrailers(movieId: Int, completion: @escaping ([Trailer]?) -> ()) {
+        provider.request(.trailers(id: movieId)) { (result) in
+            switch result {
+            case let .success(response):
+                let json = JSON(data: response.data)
+                completion(ApiResponse(from: json).trailers)
+            case let .failure(error):
+                print(error.localizedDescription)
                 completion(nil)
             }
         }

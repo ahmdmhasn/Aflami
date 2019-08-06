@@ -8,5 +8,15 @@ target 'Aflami' do
   # Pods for Aflami
 pod 'SwiftyJSON', '~> 3.0.0'
 pod 'Moya', '~> 8.0.0’	
+pod 'RealmSwift', '~> 3.0.0'
+
+pod 'SVProgressHUD', '~> 1.1.2'
+pod 'ChameleonFramework'
+pod 'SDWebImage', '~> 4.0’
+pod 'Cosmos', git: 'https://github.com/marketplacer/Cosmos.git', tag: '8.0.2'
+
+target 'AflamiTests' do
+  inherit! :search_paths
+end
 
 end
