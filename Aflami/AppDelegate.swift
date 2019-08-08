@@ -18,9 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         // Override point for customization after application launch.
-        let presenter = PopularMoviesPresenter()
-        let initialViewController = window?.rootViewController as? PopularMoviesVC
-        initialViewController?.presenter = presenter
+        window?.rootViewController = PopularMoviesVCRouter.createPopularMoviesVC()
         
         // Get realm file url
         let realm = try! Realm()

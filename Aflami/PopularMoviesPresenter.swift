@@ -8,28 +8,49 @@
 
 import UIKit
 
-protocol PopularMoviesDelegate {
+protocol PopularMoviesDelegate: class {
     func reloadCollectionView()
 }
 
 class PopularMoviesPresenter: NSObject {
     
+    private weak var view: PopularMoviesDelegate!
+    private var router: PopularMoviesVCRouter
+    private var interactor: MovieInteractor
+    
     let moviesCellReuseIdentifier = "MoviesCollectionViewCell"
-    let networkManager = NetworkManager.shared
     var moviesList = [Movie]()
     var page: Int = 1
-    var delegate: PopularMoviesDelegate!
     
-    func getMovies() {
-        networkManager.getNewMovies(page: page) { [weak self] (movies) in
+    private weak var networkManager: NetworkManager!
+    
+    init(view: PopularMoviesDelegate, router: PopularMoviesVCRouter, interactor: MovieInteractor) {
+
+        self.view = view
+        self.router = router
+        self.interactor = interactor
+    }
+    
+    func viewDidLoad() {
+        getAllMovies()
+    }
+    
+    func getAllMovies() {
+        
+        interactor.getAllMovies(page: page) { [weak self] (movies, error) in
+            
             guard let movies = movies else {
                 return
             }
             
             self?.page += 1
             self?.moviesList.append(contentsOf: movies)
-            self?.delegate.reloadCollectionView()
+            self?.view.reloadCollectionView()
         }
+    }
+    
+    func didSelectCell(at index: Int) {
+        router.navigateToMovieDetails(from: view, movie: moviesList[index], movieInteractor: interactor)
     }
     
 }

@@ -9,12 +9,12 @@
 import Foundation
 import SwiftyJSON
 
-struct ApiResponse {
+struct TrailersApiResponse {
     let page: Int
     let trailers: [Trailer]
 }
 
-extension ApiResponse {
+extension TrailersApiResponse {
     private enum ResponseCodingKeys: String {
         case page
         case trailers = "results"

@@ -11,8 +11,10 @@ import SwiftyJSON
 import Moya
 
 protocol Networkable {
+    
     var provider: MoyaProvider<MovieAPI> { get }
-    func getNewMovies(page: Int, completion: @escaping ([Movie]?)->())
+    
+    //func getNewMovies(page: Int, completion: @escaping ([Movie]?)->())
 }
 
 class NetworkManager {
@@ -30,28 +32,54 @@ class NetworkManager {
 
 extension NetworkManager: Networkable{
     
-    func getNewMovies(page: Int, completion: @escaping ([Movie]?) -> ()) {
+    func getNewMovies(page: Int, completion: @escaping ([Movie]?, Swift.Error?) -> ()) {
         provider.request(.popular(page: page)) { (result) in
             switch result {
             case let .success(response):
                 let json = JSON(data: response.data)
-                completion(MovieApiResponse(from: json).movies)
+                completion(MovieApiResponse(from: json).movies, nil)
             case let .failure(error):
                 print(error)
-                completion(nil)
+                completion(nil, error)
             }
         }
     }
     
-    func getTrailers(movieId: Int, completion: @escaping ([Trailer]?) -> ()) {
+    func getTrailers(movieId: Int, completion: @escaping ([Trailer]?, Swift.Error?) -> ()) {
         provider.request(.trailers(id: movieId)) { (result) in
             switch result {
             case let .success(response):
                 let json = JSON(data: response.data)
-                completion(ApiResponse(from: json).trailers)
+                completion(TrailersApiResponse(from: json).trailers, nil)
             case let .failure(error):
                 print(error.localizedDescription)
-                completion(nil)
+                completion(nil, error)
+            }
+        }
+    }
+    
+    func getCast(movieId: Int, completion: @escaping ([Cast]?, Swift.Error?) -> ()) {
+        provider.request(.cast(id: movieId)) { (result) in
+            switch result {
+            case let .success(response):
+                let json = JSON(data: response.data)
+                completion(CastApiResponse(from: json).cast, nil)
+            case let .failure(error):
+                print(error.localizedDescription)
+                completion(nil, error)
+            }
+        }
+    }
+    
+    func getReviews(movieId: Int, completion: @escaping ([Review]?, Swift.Error?) -> ()) {
+        provider.request(.reviews(id: movieId)) { (result) in
+            switch result {
+            case let .success(response):
+                let json = JSON(data: response.data)
+                completion(ReviewsApiResponse(from: json).reviews, nil)
+            case let .failure(error):
+                print(error.localizedDescription)
+                completion(nil, error)
             }
         }
     }
