@@ -173,7 +173,7 @@
                                                         <rect key="frame" x="0.0" y="28" width="205" height="85"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vdv-Uw-xuN" id="4rw-DD-zc2">
-                                                            <rect key="frame" x="0.0" y="0.0" width="205" height="85"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="205" height="84"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                         </tableViewCellContentView>
                                                     </tableViewCell>
@@ -343,10 +343,10 @@
             </objects>
             <point key="canvasLocation" x="2953" y="103"/>
         </scene>
-        <!--View Controller-->
+        <!--Favourite MoviesVC-->
         <scene sceneID="rHy-Tq-XWi">
             <objects>
-                <viewController id="FKo-r2-b9r" sceneMemberID="viewController">
+                <viewController id="FKo-r2-b9r" customClass="FavouriteMoviesVC" customModule="Aflami" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VGH-du-wtp"/>
                         <viewControllerLayoutGuide type="bottom" id="1LF-O6-BH2"/>
@@ -384,6 +384,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="mAf-Vc-NFO"/>
+                    <connections>
+                        <outlet property="moviesCollectionView" destination="1wC-35-huM" id="4fS-Ji-LZh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ble-zL-8Zi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -407,11 +410,11 @@
             </objects>
             <point key="canvasLocation" x="-134" y="438"/>
         </scene>
-        <!--Item-->
+        <!--Popular-->
         <scene sceneID="Vxd-hL-8wO">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WHF-g9-v67" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="BSe-g2-2tH"/>
+                    <tabBarItem key="tabBarItem" title="Popular" image="trending" id="BSe-g2-2tH"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="rg3-ZK-aPb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -430,11 +433,11 @@
             </objects>
             <point key="canvasLocation" x="948" y="102.99850074962519"/>
         </scene>
-        <!--Item 2-->
+        <!--Navigation Controller-->
         <scene sceneID="FhQ-Hp-9me">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VPp-He-qgZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 2" id="gKG-j7-HCc"/>
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="gKG-j7-HCc"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="YSZ-b1-Lxx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -454,4 +457,7 @@
             <point key="canvasLocation" x="948" y="940"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="trending" width="24" height="24"/>
+    </resources>
 </document>

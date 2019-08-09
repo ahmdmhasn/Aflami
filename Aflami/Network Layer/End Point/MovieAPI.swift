@@ -10,6 +10,12 @@ import Foundation
 import Moya
 import Alamofire
 
+public enum PopularMoviesSortType : String{
+    case popularity = "popularity.desc"
+    case voteAverage = "vote_average.desc"
+    case releaseDate = "release_date.desc"
+}
+
 enum NetworkEnvironment {
     case qa
     case production
@@ -18,7 +24,7 @@ enum NetworkEnvironment {
 
 public enum MovieAPI {
     case recommended(id: Int)
-    case popular(page: Int)
+    case popular(page: Int, sortType: PopularMoviesSortType)
     case newMovies(page: Int)
     case video(id: Int)
     case login(userName: String, password: String)
@@ -83,8 +89,8 @@ extension MovieAPI: TargetType {
     /// The parameters to be encoded in the request.
     public var parameters: [String: Any]? {
         switch self {
-        case .popular(let page):
-            return ["page": page, "api_key": NetworkManager.myAPIKey]
+        case .popular(let page, let sortType):
+            return ["page": page, "api_key": NetworkManager.myAPIKey, "sort_by": sortType.rawValue]
         case .trailers, .reviews, .cast:
             return ["api_key": NetworkManager.myAPIKey]
         default:

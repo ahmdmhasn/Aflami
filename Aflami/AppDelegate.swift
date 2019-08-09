@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         window?.rootViewController = PopularMoviesVCRouter.createPopularMoviesVC()
         
+        window?.tintColor = UIColor.appPrimary
+        
         // Get realm file url
         let realm = try! Realm()
         print(realm.configuration.fileURL!)

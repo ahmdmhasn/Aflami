@@ -32,8 +32,8 @@ class NetworkManager {
 
 extension NetworkManager: Networkable{
     
-    func getNewMovies(page: Int, completion: @escaping ([Movie]?, Swift.Error?) -> ()) {
-        provider.request(.popular(page: page)) { (result) in
+    func getNewMovies(page: Int, sortType: PopularMoviesSortType, completion: @escaping ([Movie]?, Swift.Error?) -> ()) {
+        provider.request(.popular(page: page, sortType: sortType)) { (result) in
             switch result {
             case let .success(response):
                 let json = JSON(data: response.data)
