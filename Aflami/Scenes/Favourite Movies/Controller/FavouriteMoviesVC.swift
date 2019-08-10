@@ -18,6 +18,8 @@ class FavouriteMoviesVC: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.title = "Favourite Movies"
+        
         // TODO: - Remove this to creation part
         let router = FavouriteMoviesVCRouter()
         let interactor = MovieInteractor()

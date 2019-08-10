@@ -22,4 +22,8 @@ extension PopularMoviesVC: PopularMoviesDelegate {
         SVProgressHUD.dismiss()
     }
     
+    func setNavigationItemTitle(_ text: String) {
+        navigationItem.title = text
+    }
+    
 }

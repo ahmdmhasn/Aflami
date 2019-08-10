@@ -25,7 +25,7 @@ class NetworkManager {
     
     static let environment: NetworkEnvironment = .production
     static let myAPIKey = "e91d155831d8f6a5c7089243d189285b"
-    let provider = MoyaProvider<MovieAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
+    let provider = MoyaProvider<MovieAPI>(plugins: [/*NetworkLoggerPlugin(verbose: true)*/])
 }
 
 
