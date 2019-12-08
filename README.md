@@ -8,3 +8,7 @@ Implementing The Movies App(Aflami) using VIPER design pattern, realm data persi
 - AflamiApp-MVVM
 
 ## Screenshots
+<img src="https://github.com/ahmdmhasn/Aflami/blob/master/Screenshots/01.png" width="200" />
+<img src="https://github.com/ahmdmhasn/Aflami/blob/master/Screenshots/02.png" width="200" />
+<img src="https://github.com/ahmdmhasn/Aflami/blob/master/Screenshots/03.png" width="200" />
+<img src="https://github.com/ahmdmhasn/Aflami/blob/master/Screenshots/04.png" width="200" />
