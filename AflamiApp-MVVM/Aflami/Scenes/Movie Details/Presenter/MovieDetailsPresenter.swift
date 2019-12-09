@@ -65,11 +65,11 @@ class MovieDetailsPresenter: NSObject {
     }
     
     func updateMovieUI() {
-        view.updateMovieImage(path: movie.posterPath)
-        view.updateMovieRate(value: movie.rating)
-        view.updateMovieName(text: movie.title)
-        view.updateMovieDescription(text: movie.overview)
-        view.updateMovieReleaseDate(text: movie.releaseDate)
+        view.updateMovieImage(path: movie.posterPath ?? "")
+        view.updateMovieRate(value: movie.voteAverage ?? Double.zero)
+        view.updateMovieName(text: movie.title ?? "")
+        view.updateMovieDescription(text: movie.overview ?? "")
+        view.updateMovieReleaseDate(text: movie.releaseDate ?? "")
         view.updateBackgroundView()
         
         let movieFromDatabase = interactor.getMovieFromDatabase(with: movie.id)

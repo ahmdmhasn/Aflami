@@ -10,11 +10,11 @@ import Foundation
 import SwiftyJSON
 import Moya
 
-protocol Networkable {
-    
-    var provider: MoyaProvider<MovieAPI> { get }
-    
-    //func getNewMovies(page: Int, completion: @escaping ([Movie]?)->())
+protocol MovieAPIProtocol {
+    func getNewMovies(page: Int, sortType: PopularMoviesSortType, completion: @escaping (MovieApiResponse?, Swift.Error?) -> ())
+    func getTrailers(movieId: Int, completion: @escaping ([Trailer]?, Swift.Error?) -> ())
+    func getCast(movieId: Int, completion: @escaping ([Cast]?, Swift.Error?) -> ())
+    func getReviews(movieId: Int, completion: @escaping ([Review]?, Swift.Error?) -> ())
 }
 
 class NetworkManager {
@@ -25,25 +25,26 @@ class NetworkManager {
     
     static let environment: NetworkEnvironment = .production
     static let myAPIKey = "e91d155831d8f6a5c7089243d189285b"
-    let provider = MoyaProvider<MovieAPI>(plugins: [/*NetworkLoggerPlugin(verbose: true)*/])
+    let provider = MoyaProvider<MovieAPI>(plugins: [NetworkLoggerPlugin(verbose: false)])
 }
 
 
 
-extension NetworkManager: Networkable{
+extension NetworkManager: MovieAPIProtocol {
     
-    func getNewMovies(page: Int, sortType: PopularMoviesSortType, completion: @escaping ([Movie]?, Swift.Error?) -> ()) {
+    func getNewMovies(page: Int, sortType: PopularMoviesSortType, completion: @escaping (MovieApiResponse?, Swift.Error?) -> ()) {
         provider.request(.popular(page: page, sortType: sortType)) { (result) in
             switch result {
             case let .success(response):
                 do {
-                    let json = try JSON(data: response.data)
-                    completion(MovieApiResponse(from: json).movies, nil)
+                    let apiResponse = try JSONDecoder().decode(MovieApiResponse.self, from: response.data)
+                    completion(apiResponse, nil)
                 } catch {
+                    print("\(#function): \(error)")
                     completion(nil, error)
                 }
             case let .failure(error):
-                print(error)
+                print("\(#function): \(error)")
                 completion(nil, error)
             }
         }
@@ -57,10 +58,11 @@ extension NetworkManager: Networkable{
                     let json = try JSON(data: response.data)
                     completion(TrailersApiResponse(from: json).trailers, nil)
                 } catch {
+                    print("\(#function): \(error)")
                     completion(nil, error)
                 }
             case let .failure(error):
-                print(error.localizedDescription)
+                print("\(#function): \(error)")
                 completion(nil, error)
             }
         }
@@ -74,10 +76,11 @@ extension NetworkManager: Networkable{
                     let json = try JSON(data: response.data)
                     completion(CastApiResponse(from: json).cast, nil)
                 } catch {
+                    print("\(#function): \(error)")
                     completion(nil, error)
                 }
             case let .failure(error):
-                print(error.localizedDescription)
+                print("\(#function): \(error)")
                 completion(nil, error)
             }
         }
@@ -91,10 +94,11 @@ extension NetworkManager: Networkable{
                     let json = try JSON(data: response.data)
                     completion(ReviewsApiResponse(from: json).reviews, nil)
                 } catch {
+                    print("\(#function): \(error)")
                     completion(nil, error)
                 }
             case let .failure(error):
-                print(error.localizedDescription)
+                print("\(#function): \(error)")
                 completion(nil, error)
             }
         }

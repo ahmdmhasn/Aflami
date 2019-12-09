@@ -51,10 +51,9 @@ class MovieDetailsVC: BaseViewController {
         
         // Setup like button
         likeButton = LikeNavBarButton()
-        
         likeButton.addTarget(self, action: #selector(likeButtonTapped(_:)), for: UIControl.Event.touchUpInside)
-        
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: likeButton)
+        let likeTabBarItem = UIBarButtonItem(customView: likeButton)
+        self.navigationItem.rightBarButtonItem = likeTabBarItem
         
         // Setup delegates for table & collection views
         setupTrailersTableView()

@@ -31,7 +31,7 @@ class MovieInteractor {
         
         networkManager.getNewMovies(page: page, sortType: sortType) { (movies, error) in
             
-            completion(movies, error)
+            completion(movies?.movies, error)
             
         }
     }

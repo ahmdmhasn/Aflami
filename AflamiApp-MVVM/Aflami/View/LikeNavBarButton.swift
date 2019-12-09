@@ -15,11 +15,8 @@ class LikeNavBarButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: CGRect.zero)
         
-        self.frame = CGRect(x: 0, y: 0, width: 35, height: 35)
-        
         self.setImage(UIImage(named: "like-0.png"), for: UIControl.State.normal)
-        
-        //self.addTarget(self, action: #selector(selectionAnimation), for: .touchUpInside)
+        self.widthAnchor.constraint(equalTo: self.heightAnchor, multiplier: 1).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {

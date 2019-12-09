@@ -10,38 +10,43 @@ import Foundation
 import SwiftyJSON
 import RealmSwift
 
-struct Movie {
+// MARK: - Movie
+struct Movie: Codable {
+    let posterPath: String?
     let id: Int
-    let posterPath: String
-    let backdrop: String
-    let title: String
-    let releaseDate: String
-    let rating: Double
-    let overview: String
+    let backdropPath: String?
+    let title: String?
+    let overview, releaseDate: String?
+    let voteAverage: Double?
+
+    let popularity: Double? = nil
+    let voteCount: Int? = nil
+    let video: Bool? = nil
+    let adult: Bool? = nil
+    let originalLanguage: OriginalLanguage? = nil
+    let originalTitle: String? = nil
+    let genreIDS: [Int]? = nil
+
+    enum CodingKeys: String, CodingKey {
+        case popularity
+        case voteCount = "vote_count"
+        case video
+        case posterPath = "poster_path"
+        case id, adult
+        case backdropPath = "backdrop_path"
+        case originalLanguage = "original_language"
+        case originalTitle = "original_title"
+        case genreIDS = "genre_ids"
+        case title
+        case voteAverage = "vote_average"
+        case overview
+        case releaseDate = "release_date"
+    }
 }
 
-extension Movie {
-    
-    enum MovieCodingKeys: String {
-        case id
-        case posterPath = "poster_path"
-        case backdrop = "backdrop_path"
-        case title
-        case releaseDate = "release_date"
-        case rating = "vote_average"
-        case overview
-    }
-    
-    
-    init(from json: JSON) {
-        id = json[MovieCodingKeys.id.rawValue].intValue
-        posterPath = json[MovieCodingKeys.posterPath.rawValue].stringValue
-        backdrop = json[MovieCodingKeys.backdrop.rawValue].stringValue
-        title = json[MovieCodingKeys.title.rawValue].stringValue
-        releaseDate = json[MovieCodingKeys.releaseDate.rawValue].stringValue
-        rating = json[MovieCodingKeys.rating.rawValue].doubleValue
-        overview = json[MovieCodingKeys.overview.rawValue].stringValue
-    }
+enum OriginalLanguage: String, Codable {
+    case cn = "cn"
+    case en = "en"
 }
 
 // MARK: - Data persistance
@@ -50,22 +55,22 @@ extension Movie: Persistable {
     init(managedObject: MovieObject) {
         id = managedObject.id
         posterPath = managedObject.posterPath
-        backdrop = managedObject.backdrop
+        backdropPath = managedObject.backdrop
         title = managedObject.title
         releaseDate = managedObject.releaseDate
-        rating = managedObject.rating
+        voteAverage = managedObject.rating
         overview = managedObject.overview
     }
     
     func managedObject() -> MovieObject {
         let movie = MovieObject()
         movie.id = id
-        movie.posterPath = posterPath
-        movie.backdrop = backdrop
-        movie.title = title
-        movie.releaseDate = releaseDate
-        movie.rating = rating
-        movie.overview = overview
+        movie.posterPath = posterPath ?? ""
+        movie.backdrop = backdropPath ?? ""
+        movie.title = title ?? ""
+        movie.releaseDate = releaseDate ?? ""
+        movie.rating = voteAverage ?? Double.zero
+        movie.overview = overview ?? ""
         
         return movie
     }

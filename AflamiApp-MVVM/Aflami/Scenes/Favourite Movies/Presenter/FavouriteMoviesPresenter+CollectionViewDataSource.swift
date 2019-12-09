@@ -23,7 +23,7 @@ extension FavouriteMoviesPresenter: UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: moviesCellReuseIdentifier, for: indexPath) as! MoviesCollectionViewCell
         
-        cell.movie = movie
+        cell.movie = MovieCellViewModel(withMovie: movie)
         
         return cell
         

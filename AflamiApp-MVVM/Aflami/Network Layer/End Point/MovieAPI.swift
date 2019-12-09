@@ -10,7 +10,7 @@ import Foundation
 import Moya
 import Alamofire
 
-public enum PopularMoviesSortType : String{
+public enum PopularMoviesSortType : String {
     case popularity = "popularity.desc"
     case voteAverage = "vote_average.desc"
     case releaseDate = "release_date.desc"
@@ -86,27 +86,15 @@ extension MovieAPI: TargetType {
         }
     }
     
-    /// The parameters to be encoded in the request.
-    public var parameters: [String: Any]? {
-        switch self {
-        case .popular(let page, let sortType):
-            return ["page": page, "api_key": NetworkManager.myAPIKey, "sort_by": sortType.rawValue]
-        case .trailers, .reviews, .cast:
-            return ["api_key": NetworkManager.myAPIKey]
-        default:
-            return [:]
-        }
-    }
-    
     /// The type of HTTP task to be performed.
     public var task: Task {
         switch self {
         case .popular(let page, let sortType):
             let params: [String : Any] = ["page": page, "api_key": NetworkManager.myAPIKey, "sort_by": sortType.rawValue]
-            return .requestParameters(parameters: params, encoding: JSONEncoding.default)
+            return .requestParameters(parameters: params, encoding: URLEncoding.default)
         case .trailers, .reviews, .cast:
             let params = ["api_key": NetworkManager.myAPIKey]
-            return .requestParameters(parameters: params, encoding: JSONEncoding.default)
+            return .requestParameters(parameters: params, encoding: URLEncoding.default)
         default:
             return .requestPlain
         }

@@ -9,25 +9,15 @@
 import Foundation
 import SwiftyJSON
 
-struct MovieApiResponse {
-    let page: Int
-    let numberOfResults: Int
-    let numberOfPages: Int
+// MARK: - MovieApiResponse
+struct MovieApiResponse: Codable {
+    let page, totalResults, totalPages: Int
     let movies: [Movie]
-}
 
-extension MovieApiResponse {
-    private enum ResponseCodingKeys: String {
+    enum CodingKeys: String, CodingKey {
         case page
-        case numberOfResults = "total_results"
-        case numberOfPages = "total_pages"
+        case totalResults = "total_results"
+        case totalPages = "total_pages"
         case movies = "results"
-    }
-    
-    init(from json: JSON) {
-        page = json[ResponseCodingKeys.page.rawValue].intValue
-        numberOfResults = json[ResponseCodingKeys.numberOfResults.rawValue].intValue
-        numberOfPages = json[ResponseCodingKeys.numberOfPages.rawValue].intValue
-        movies = json[ResponseCodingKeys.movies.rawValue].arrayValue.map{Movie(from: $0)}
     }
 }
