@@ -47,6 +47,10 @@ class MoviesListViewModel {
         return moviesViewModelsList[indexPath.row]
     }
     
+    func getMovie(at indexPath: IndexPath) -> Movie {
+        return moviesList[indexPath.row]
+    }
+    
     func initFetch() {
         self.currentPage = 1
         self.totalCount = 0
@@ -75,7 +79,7 @@ class MoviesListViewModel {
     // MARK: - Private Handlers
     
     private func processFetchedMovies(movies: [Movie]) {
-        self.moviesList = movies
+        self.moviesList.append(contentsOf: movies)
         let vms = movies.map{MovieCellViewModel(withMovie: $0)}
         self.moviesViewModelsList.append(contentsOf: vms)
     }

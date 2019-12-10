@@ -134,9 +134,11 @@ extension MoviesListVC: UICollectionViewDelegate, UICollectionViewDataSource {
         }
     }
 
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        presenter.didSelectCell(at: indexPath.row)
-//    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let movie = viewModel.getMovie(at: indexPath)
+        let movieDetailsVC = MovieDetailsRouter.createView(movie: movie)
+        navigationController?.pushViewController(movieDetailsVC, animated: true)
+    }
 
     
     
