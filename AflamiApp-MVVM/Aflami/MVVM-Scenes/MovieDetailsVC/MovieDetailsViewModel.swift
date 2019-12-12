@@ -12,6 +12,7 @@ class MovieDetailsViewModel {
     
     // MARK: - Properties
     var movie: Movie!
+    
     // Trailers properties
     var reloadTrailersClosure: (()->())?
     var updateTrailersStateClosure: (()->())?
@@ -21,6 +22,7 @@ class MovieDetailsViewModel {
     public var trailersState: State = .loading {
         didSet { self.updateTrailersStateClosure?() }
     }
+    
     // Cast properties
     var reloadCastClosure: (()->())?
     var updateCastStateClosure: (()->())?
@@ -30,8 +32,16 @@ class MovieDetailsViewModel {
     public var castState: State = .loading {
         didSet { self.updateCastStateClosure?() }
     }
+    
     // reviews properties
-    private var reviews = [Review]()
+    var reloadReviewsClosure: (()->())?
+    var updateReviewsStateClosure: (()->())?
+    private var reviews = [Review]() {
+        didSet { self.reloadReviewsClosure?() }
+    }
+    public var reviewsState: State = .loading {
+        didSet { self.updateReviewsStateClosure?()}
+    }
     
     // MARK: - Init
     init(movie: Movie) {
@@ -94,6 +104,36 @@ class MovieDetailsViewModel {
                 self.cast = cast
                 self.castState = .populated
             }
+        }
+    }
+    
+    // Reviews
+    public var reviewsCount: Int {
+        return reviews.count
+    }
+    
+    public func getReview(at indexPath: IndexPath) -> Review {
+        return reviews[indexPath.row]
+    }
+    
+    public func loadReviews() {
+        self.reviewsState = .loading
+        NetworkManager.shared.getReviews(movieId: movie.id) { [weak self] (reviews, error) in
+            guard let self = self else { return }
+
+            guard let reviews = reviews else {
+                self.reviewsState = .error(message: error?.localizedDescription ?? "")
+                return
+            }
+
+            if reviews.isEmpty {
+                self.reviewsState = .empty
+            }
+            else {
+                self.reviews = reviews
+                self.reviewsState = .populated
+            }
+
         }
     }
 

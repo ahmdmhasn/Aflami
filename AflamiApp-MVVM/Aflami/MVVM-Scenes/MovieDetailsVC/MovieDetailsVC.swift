@@ -90,6 +90,7 @@ class MovieDetailsVC: UIViewController {
         
         viewModel.loadTrailers()
         viewModel.loadCast()
+        viewModel.loadReviews() 
     }
     
     private func initVCTrailers() {
@@ -131,7 +132,23 @@ class MovieDetailsVC: UIViewController {
     }
     
     private func initVMReviews() {
+        viewModel.reloadReviewsClosure = { [weak self] in
+            DispatchQueue.main.async {
+                self?.reviewsCollectionView.reloadData()
+            }
+        }
         
+        viewModel.updateReviewsStateClosure = { [weak self] in
+            guard let self = self else { return }
+            switch self.viewModel.reviewsState {
+            case .empty, .error, .populated:
+                self.reviewsActivityIndicator.stopAnimating()
+                
+            case .loading:
+                self.reviewsActivityIndicator.startAnimating()
+            }
+
+        }
     }
         
     @objc func likeButtonTapped(_ button: LikeNavBarButton) {
@@ -169,25 +186,7 @@ extension MovieDetailsVC {
         movieDescriptionLabel.text = movie.overview ?? ""
         releaseDateLabel.text = movie.releaseDate ?? ""
     }
-    
-    func shouldGetCast(done: Bool = false) {
-        if done {
-            castCollectionView.reloadData()
-            castActivityIndicator.stopAnimating()
-        } else {
-            castActivityIndicator.startAnimating()
-        }
-    }
         
-    func shouldGetReviews(done: Bool = false) {
-        if done {
-            reviewsCollectionView.reloadData()
-            reviewsActivityIndicator.stopAnimating()
-        } else {
-            reviewsActivityIndicator.startAnimating()
-        }
-    }
-    
     func addedToFavourite(state: Bool) {
         likeButton.shouldSetActive(state)
     }
@@ -225,8 +224,7 @@ extension MovieDetailsVC: UICollectionViewDelegate, UICollectionViewDataSource {
             return viewModel.castCount
 
         case reviewsTag:
-//            return reviews.count
-            return 0
+            return viewModel.reviewsCount
 
         default:
             fatalError("Collection view doesn't exist!")
@@ -243,7 +241,7 @@ extension MovieDetailsVC: UICollectionViewDelegate, UICollectionViewDataSource {
             
         case reviewsTag:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(ReviewsCollectionViewCell.self)", for: indexPath) as! ReviewsCollectionViewCell
-//            cell.review = reviews[indexPath.row]
+            cell.review = viewModel.getReview(at: indexPath)
             return cell
             
         default:
