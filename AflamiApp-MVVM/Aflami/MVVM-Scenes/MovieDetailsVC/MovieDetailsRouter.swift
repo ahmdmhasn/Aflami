@@ -12,15 +12,11 @@ class MovieDetailsRouter {
     
     public class func createView(movie: Movie) -> MovieDetailsVC {
         
-        let movieDetailsVC = storyboard.instantiateViewController(withIdentifier: "\(MovieDetailsVC.self)") as! MovieDetailsVC
+        let movieDetailsVC = MovieDetailsVC(nibName: "\(MovieDetailsVC.self)", bundle: nil)
         
         movieDetailsVC.viewModel = MovieDetailsViewModel(movie: movie)
         
         return movieDetailsVC
     }
-    
-    private class var storyboard: UIStoryboard {
-        return UIStoryboard(name: "Main", bundle: Bundle.main)
-    }
-        
+            
 }

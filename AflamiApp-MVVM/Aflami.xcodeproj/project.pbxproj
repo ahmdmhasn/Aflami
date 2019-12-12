@@ -72,6 +72,7 @@
 		FC91242723A2366100941866 /* MoviesListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC91242623A2366100941866 /* MoviesListRouter.swift */; };
 		FC91242B23A256ED00941866 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC91242923A256ED00941866 /* LoadingView.xib */; };
 		FC91242C23A256ED00941866 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC91242A23A256ED00941866 /* LoadingView.swift */; };
+		FC91243023A285A400941866 /* MovieDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC91242E23A285A400941866 /* MovieDetailsVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -176,6 +177,7 @@
 		FC91242623A2366100941866 /* MoviesListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListRouter.swift; sourceTree = "<group>"; };
 		FC91242923A256ED00941866 /* LoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		FC91242A23A256ED00941866 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		FC91242E23A285A400941866 /* MovieDetailsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieDetailsVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -552,6 +554,7 @@
 				FC1D798C239F927700D98421 /* MovieDetailsVC.swift */,
 				FC1D798E239F92A400D98421 /* MovieDetailsRouter.swift */,
 				FC1D7990239F93DA00D98421 /* MovieDetailsViewModel.swift */,
+				FC91242E23A285A400941866 /* MovieDetailsVC.xib */,
 			);
 			path = MovieDetailsVC;
 			sourceTree = "<group>";
@@ -691,6 +694,7 @@
 				E20E5B2222FAF5F5008744B5 /* CastCollectionViewCell.xib in Resources */,
 				E21BA6CB22FDED3E00DC235B /* BackgroundWithImageView.xib in Resources */,
 				FC91242B23A256ED00941866 /* LoadingView.xib in Resources */,
+				FC91243023A285A400941866 /* MovieDetailsVC.xib in Resources */,
 				E265CD0622F5A8A400468592 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
