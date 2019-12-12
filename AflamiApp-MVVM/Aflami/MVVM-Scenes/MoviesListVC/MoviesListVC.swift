@@ -15,7 +15,7 @@ class MoviesListVC: UIViewController {
     @IBOutlet weak var moviesCollectionView: UICollectionView!
 
     // MARK: - Properties
-    fileprivate var viewModel: MoviesListViewModel = {
+    fileprivate lazy var viewModel: MoviesListViewModel = {
         return MoviesListViewModel()
     }()
     
@@ -28,6 +28,14 @@ class MoviesListVC: UIViewController {
         
         // Setup collection view
         setupCollectionView()
+        
+        // Setup Navigation Bar
+        setupNavBar()
+    }
+    
+    private func setupNavBar() {
+        let changeSortTypeItem = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(changeSortType(_:)))
+        navigationItem.rightBarButtonItems = [changeSortTypeItem]
     }
     
     private func setupCollectionView() {
@@ -104,19 +112,31 @@ class MoviesListVC: UIViewController {
     
     // MARK: - Handlers
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func changeSortType(_ button: UIBarButtonItem) {
+        
+        let alert = UIAlertController(title: "Change sorting type?", message: nil, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Popular Movies", style: .default, handler: { [unowned self] (action) in
+            self.viewModel.updateSortingType(to: .popularity)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Top Rated Movies", style: .default, handler: { [unowned self] (action) in
+            self.viewModel.updateSortingType(to: .voteAverage)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Newly Released Movies", style: .default, handler: { [unowned self] (action) in
+            self.viewModel.updateSortingType(to: .releaseDate)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        
+        self.present(alert, animated: true, completion: nil)
     }
-    */
 
 }
 
 extension MoviesListVC: UICollectionViewDelegate, UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.numberOfCells
     }
@@ -126,7 +146,6 @@ extension MoviesListVC: UICollectionViewDelegate, UICollectionViewDataSource {
         cell.movie = viewModel.getCellViewModel(at: indexPath)
         return cell
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if (indexPath.row + 1) == viewModel.numberOfCells {
@@ -139,7 +158,5 @@ extension MoviesListVC: UICollectionViewDelegate, UICollectionViewDataSource {
         let movieDetailsVC = MovieDetailsRouter.createView(movie: movie)
         navigationController?.pushViewController(movieDetailsVC, animated: true)
     }
-
-    
     
 }

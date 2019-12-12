@@ -34,9 +34,9 @@ class MoviesListViewModel {
     // MARK: - Init
     // Inject network manager/ data manager if needed
     init() {
-        
-    }
 
+    }
+    
     // MARK: - Handlers
     
     var numberOfCells: Int {
