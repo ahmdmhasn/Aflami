@@ -13,24 +13,29 @@ class MovieDetailsViewModel {
     // MARK: - Properties
     var movie: Movie!
     // Trailers properties
-    var reloadTrailersCollectionViewClosure: (()->())?
+    var reloadTrailersClosure: (()->())?
     var updateTrailersStateClosure: (()->())?
     private var trailers = [Trailer]() {
-        didSet { self.reloadTrailersCollectionViewClosure?() }
+        didSet { self.reloadTrailersClosure?() }
     }
-    private var trailersState: State = .loading {
+    public var trailersState: State = .loading {
         didSet { self.updateTrailersStateClosure?() }
     }
     // Cast properties
-    private var cast = [Cast]()
+    var reloadCastClosure: (()->())?
+    var updateCastStateClosure: (()->())?
+    private var cast = [Cast]() {
+        didSet { self.reloadCastClosure?() }
+    }
+    public var castState: State = .loading {
+        didSet { self.updateCastStateClosure?() }
+    }
     // reviews properties
     private var reviews = [Review]()
     
     // MARK: - Init
     init(movie: Movie) {
         self.movie = movie
-        
-        getTrailers()
     }
     
     // MARK: - Handlers
@@ -43,12 +48,9 @@ class MovieDetailsViewModel {
         return trailers[indexPath.row]
     }
     
-    private func getTrailers() {
-        
+    func loadTrailers() {
         self.trailersState = .loading
-        
         NetworkManager.shared.getTrailers(movieId: movie.id) { [weak self] (trailers, error) in
-            
             guard let self = self else { return }
 
             guard let trailers = trailers else {
@@ -62,6 +64,35 @@ class MovieDetailsViewModel {
             else {
                 self.trailers = trailers
                 self.trailersState = .populated
+            }
+        }
+    }
+    
+    // Cast
+    public var castCount: Int {
+        return cast.count
+    }
+    
+    public func getCast(at indexPath: IndexPath) -> Cast {
+        return cast[indexPath.row]
+    }
+    
+    public func loadCast() {
+        self.castState = .loading
+        NetworkManager.shared.getCast(movieId: movie.id) { [weak self] (cast, error) in
+            guard let self = self else { return }
+
+            guard let cast = cast else {
+                self.castState = .error(message: error?.localizedDescription ?? "")
+                return
+            }
+
+            if cast.isEmpty {
+                self.castState = .empty
+            }
+            else {
+                self.cast = cast
+                self.castState = .populated
             }
         }
     }

@@ -84,11 +84,53 @@ class MovieDetailsVC: UIViewController {
     
     // View Model
     private func initVM() {
-        viewModel.reloadTrailersCollectionViewClosure = { [weak self] in
+        initVCTrailers()
+        initVMCast()
+        initVMReviews()
+        
+        viewModel.loadTrailers()
+        viewModel.loadCast()
+    }
+    
+    private func initVCTrailers() {
+        viewModel.reloadTrailersClosure = { [weak self] in
             DispatchQueue.main.async {
                 self?.trailersTableView.reloadData()
             }
         }
+        
+        viewModel.updateTrailersStateClosure = { [weak self] in
+            guard let self = self else { return }
+            switch self.viewModel.trailersState {
+            case .empty, .error, .populated:
+                self.trailersActivityIndicator.stopAnimating()
+                
+            case .loading:
+                self.trailersActivityIndicator.startAnimating()
+            }
+        }
+    }
+    
+    private func initVMCast() {
+        viewModel.reloadCastClosure = { [weak self] in
+            DispatchQueue.main.async {
+                self?.castCollectionView.reloadData()
+            }
+        }
+        
+        viewModel.updateCastStateClosure = { [weak self] in
+            guard let self = self else { return }
+            switch self.viewModel.castState {
+            case .empty, .error, .populated:
+                self.castActivityIndicator.stopAnimating()
+                
+            case .loading:
+                self.castActivityIndicator.startAnimating()
+            }
+        }
+    }
+    
+    private func initVMReviews() {
         
     }
         
@@ -136,16 +178,7 @@ extension MovieDetailsVC {
             castActivityIndicator.startAnimating()
         }
     }
-    
-    func shouldGetTrailers(done: Bool = false) {
-        if done {
-            trailersTableView.reloadData()
-            trailersActivityIndicator.stopAnimating()
-        } else {
-            trailersActivityIndicator.startAnimating()
-        }
-    }
-    
+        
     func shouldGetReviews(done: Bool = false) {
         if done {
             reviewsCollectionView.reloadData()
@@ -187,14 +220,14 @@ extension MovieDetailsVC: UITableViewDelegate, UITableViewDataSource {
 extension MovieDetailsVC: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
         switch collectionView.tag {
         case castTag:
-//            return cast.count
-            break
+            return viewModel.castCount
+
         case reviewsTag:
 //            return reviews.count
-            break
+            return 0
+
         default:
             fatalError("Collection view doesn't exist!")
         }
@@ -205,12 +238,14 @@ extension MovieDetailsVC: UICollectionViewDelegate, UICollectionViewDataSource {
         switch collectionView.tag {
         case castTag:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(CastCollectionViewCell.self)", for: indexPath) as! CastCollectionViewCell
-//            cell.cast = cast[indexPath.row]
+            cell.cast = viewModel.getCast(at: indexPath)
             return cell
+            
         case reviewsTag:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(ReviewsCollectionViewCell.self)", for: indexPath) as! ReviewsCollectionViewCell
 //            cell.review = reviews[indexPath.row]
             return cell
+            
         default:
             fatalError("Collection view doesn't exist!")
         }
